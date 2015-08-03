@@ -26,4 +26,12 @@ cordova create client org.myleft.tushuo TuShuo
 cd client/
 cordova platform add android
 cordova build android
+# cordova prepare android
+# cordova compile android
+cordova run android
+```
+
+添加插件
+```shell
+cordova plugin add cordova-plugin-camera
 ```
