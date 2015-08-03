@@ -34,4 +34,5 @@ cordova run android
 添加插件
 ```shell
 cordova plugin add cordova-plugin-camera
+cordova plugin add cordova-plugin-dialogs
 ```
