@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+<meta name="format-detection" content="telephone=no">
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/holder.min.js"></script>
+<script type="text/javascript" src="js/tushuo.js"></script>
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<title>图说</title>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function () {
+	document.addEventListener('deviceready', function () {
+		if (navigator.camera) {
+			var btnCamera = $('#btn_camera');
+			btnCamera.text('拍照');
+			btnCamera.click(function(){
+				btnCamera.text('拍照中');
+				navigator.camera.getPicture(function(imageURI) {
+					btnCamera.text('拍照完成');
+					$('#photo_image').attr('src', imageURI);
+				},
+				function(message) {
+					btnCamera.text('拍照失败');
+					alert('Failed because: ' + message);
+				},
+				{
+					quality: 50,
+					destinationType: Camera.DestinationType.FILE_URI
+				});
+			});
+		}
+	}, false);
+});
+</script>
+</head>
+<body>
+<div class="container-fluid">
+	<form>
+		<div class="form-group">
+			<img id="photo_image" data-src="holder.js/200x200" class="img-thumbnail center-block">
+		</div>
+		<button type="button" id="btn_camera" class="btn center-block">准备中</button>
+		<div class="form-group">
+			<label>主题</label>
+			<input type="text" class="form-control" placeholder="请输入简短的主题">
+		</div>
+		<div class="form-group">
+			<label>内容</label>
+			<textarea class="form-control" rows="3"></textarea>
+		</div>
+		<button type="submit" class="btn btn-default">提交</button>
+	</form>
+</div>
+</body>
+</html>

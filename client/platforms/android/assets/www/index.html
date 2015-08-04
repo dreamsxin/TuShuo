@@ -7,59 +7,123 @@
 <meta name="msapplication-tap-highlight" content="no">
 <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="css/index.css">
 <script type="text/javascript" src="cordova.js"></script>
-<script type="text/javascript" src="js/tushuo.js"></script>
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/holder.min.js"></script>
+<script type="text/javascript" src="js/tushuo.js"></script>
 <title>图说</title>
+<style type="text/css">
+body { padding-top: 70px; }
+</style>
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', function () {
 	document.addEventListener('deviceready', function () {
-		var p = $("#deviceready");
-		p.find('.listening').hide();
-		p.find('.received').show();
-		console.log('Received Event: deviceready');
-		if (navigator.camera) {
-			var btnCamera = $('#btn_camera');
-			btnCamera.text('拍照');
-			btnCamera.click(function(){
-				btnCamera.text('拍照中');
-				navigator.camera.getPicture(function(imageURI) {
-					btnCamera.text('拍照完成');
-					$('#photo_image').attr('src', imageURI);
-				},
-				function(message) {
-					btnCamera.text('拍照失败');
-					alert('Failed because: ' + message);
-				},
-				{
-					quality: 50,
-					destinationType: Camera.DestinationType.FILE_URI
-				});
-			});
-		}
 	}, false);
 });
 </script>
 </head>
 <body>
+<header class="navbar-fixed-top">
+	<div class="container-fluid">
+		<ol class="breadcrumb">
+			<li><a href="index.html">首页</a></li>
+			<li class="active">关注</li>
+			<li><a href="#">刷新</a></li>
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的账户 <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="submit.html">发布图说</a></li>
+					<li><a href="#">查看收藏</a></li>
+					<li><a href="#">我的图说</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a href="login.html"><span class="glyphicon glyphicon-off icons-padding"></span>退出</a></li>
+				</ul>
+			</li>
+		</ol>
+	</div>
+</header>
 <div class="container-fluid">
-	<div class="app">
-		<h1>图说</h1>
-		<div id="deviceready" class="blink">
-			<p class="event listening">未连接设备</p>
-			<p class="event received" style="display:none;">设备已连接</p>
+	<div class="media">
+		<div class="media-left">
+			<a href="#">
+				<img class="media-object" data-src="holder.js/100x100">
+			</a>
+		</div>
+		<div class="media-body">
+			<h4 class="media-heading">Media heading</h4>
+			Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+			<p>
+			<span class="label label-default">Default</span>
+			<span class="label label-primary">Primary</span>
+			<span class="label label-success">Success</span>
+			<span class="label label-info">Info</span>
+			<span class="label label-warning">Warning</span>
+			<span class="label label-danger">Danger</span>
+			</p>
 		</div>
 	</div>
-		<div class="col-sm-12">
-			<img id="photo_image" data-src="holder.js/140x140" class="img-thumbnail center-block" alt="140x140" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNGVmMWE5MDM2ZiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE0ZWYxYTkwMzZmIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA1NDY4NzUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-holder-rendered="true" style="width: 140px; height: 140px;">
+	<div class="media">
+		<div class="media-left">
+			<a href="#">
+			<img class="media-object" data-src="holder.js/100x100">
+			</a>
 		</div>
-		<div class="col-sm-12">
-			<button id="btn_camera" class="btn center-block">准备中</button>
+		<div class="media-body">
+			<h4 class="media-heading">Media heading</h4>
+			Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
 		</div>
-		<div class="col-sm-12 text-center">
-			<a href="login.html">重新登陆</a>
+	</div>
+	<div class="media">
+		<div class="media-left">
+			<a href="#">
+			<img class="media-object" data-src="holder.js/100x100">
+			</a>
 		</div>
+		<div class="media-body">
+			<h4 class="media-heading">Media heading</h4>
+			Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+		</div>
+	</div>
+	<div class="media">
+		<div class="media-left">
+			<a href="#">
+			<img class="media-object" data-src="holder.js/100x100">
+			</a>
+		</div>
+		<div class="media-body">
+			<h4 class="media-heading">Media heading</h4>
+			Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+		</div>
+	</div>
+	<div class="media">
+		<div class="media-left">
+			<a href="#">
+			<img class="media-object" data-src="holder.js/100x100">
+			</a>
+		</div>
+		<div class="media-body">
+			<h4 class="media-heading">Media heading</h4>
+			Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+		</div>
+	</div>
+	<div class="media">
+		<div class="media-left">
+			<a href="#">
+			<img class="media-object" data-src="holder.js/100x100">
+			</a>
+		</div>
+		<div class="media-body">
+			<h4 class="media-heading">Media heading</h4>
+			Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+		</div>
+	</div>
 </div>
+<nav>
+  <ul class="pager">
+    <li><a href="#">Previous</a></li>
+    <li><a href="#">Next</a></li>
+  </ul>
+</nav>
 </body>
 </html>

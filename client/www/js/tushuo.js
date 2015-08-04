@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	var email = window.localStorage.getItem('email');
 	var password = window.localStorage.getItem('password');
 	if (!email || !password) {
-		if (document.URL.lastIndexOf('login.html') != (document.length-'login.html'.length) ) {
+		if (document.URL.lastIndexOf('login.html') != (document.URL.length-'login.html'.length) ) {
 				window.location.href = 'login.html';
 		}
 	}

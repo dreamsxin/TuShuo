@@ -10,15 +10,36 @@
 <script type="text/javascript" src="js/tushuo.js"></script>
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <title>图说</title>
+<style type="text/css">
+.app {
+    background:url(img/logo.png) no-repeat center top;
+    text-align:center;
+    padding:180px 0px 0px 0px;
+}
+</style>
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', function () {
 	$('#email').val(tushuo.getSession('email'));
 	$('#password').val(tushuo.getSession('password'));
+	
+	document.addEventListener('deviceready', function () {
+		var p = $("#deviceready");
+		p.find('.listening').hide();
+		p.find('.received').show();
+		console.log('Received Event: deviceready');
+	}, false);
 });
 </script>
 </head>
 <body>
 <div class="container-fluid">
+	<div class="app">
+		<h1>图说</h1>
+		<div id="deviceready" class="blink">
+			<p class="event listening">未连接设备</p>
+			<p class="event received" style="display:none;">设备已连接</p>
+		</div>
+	</div>
 	<div class="form-group">
 		<label>邮箱</label>
 		<input id="email" type="email" class="form-control" placeholder="Email">
