@@ -12,12 +12,12 @@
         <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
     </feature>
     <allow-intent href="market:*" />
-    <name>TuShuo</name>
+    <name>圖說</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        足不出户而知天下
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="dreamsxin@qq.com" href="http://myleftstudio.org">
+        Myleft Stduio Team
     </author>
     <content src="index.html" />
     <access origin="*" />
