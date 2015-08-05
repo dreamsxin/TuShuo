@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+<meta name="format-detection" content="telephone=no">
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/tushuo.js"></script>
+<title>图说</title>
+<style type="text/css">
+body { padding-top: 70px; }
+</style>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function () {
+	document.addEventListener('deviceready', function () {
+	}, false);
+});
+</script>
+</head>
+<body>
+<header class="navbar-fixed-top">
+	<div class="container-fluid">
+		<ol class="breadcrumb">
+			<li><a href="index.html">首页</a></li>
+			<li class="active">主题</li>
+			<li><a href="#" onclick="tushuo.search()">搜索</a></li>
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的账户 <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="submit.html">发布图说</a></li>
+					<li><a href="#">关注收藏</a></li>
+					<li><a href="#">我的图说</a></li>
+					<li role="separator" class="divider"></li>
+					<li><a href="login.html"><span class="glyphicon glyphicon-off icons-padding"></span>退出</a></li>
+				</ul>
+			</li>
+		</ol>
+	</div>
+</header>
+<div class="container-fluid">
+	<div class="list-group">
+		<a href="#" class="list-group-item">
+			<span class="badge">14</span>
+			<h4 class="list-group-item-heading">快樂育兒</h4>
+			<p class="list-group-item-text">分享寶寶成長的一點一滴</p>
+		</a>
+		<a href="#" class="list-group-item">
+			<span class="badge">14</span>
+			<h4 class="list-group-item-heading">童言稚语</h4>
+			<p class="list-group-item-text">分享寶寶可愛的言语</p>
+		</a>
+	</div>
+</div>
+<nav>
+  <ul class="pager">
+    <li><a href="#">Previous</a></li>
+    <li><a href="#">Next</a></li>
+  </ul>
+</nav>
+</body>
+</html>
